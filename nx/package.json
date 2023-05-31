@@ -37,6 +37,7 @@
     "@planetscale/database": "^1.7.0",
     "@prisma/client": "^4.15.0",
     "axios": "^1.0.0",
+    "dotenv": "^16.1.3",
     "drizzle-orm": "^0.26.3",
     "tslib": "^2.3.0"
   }
