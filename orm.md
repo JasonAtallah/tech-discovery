@@ -7,10 +7,21 @@
 ### Prisma
 
 1. Install the `prisma` dev dependency and the `@prisma/client` dependency
-2. Define the [Prisma Schema](./nx//packages/prisma/src/schema.prisma)
+2. Define the [Prisma Schema](./nx/packages/prisma/src/schema.prisma)
 3. Push changes to db with `npx prisma db push`
 
 ### Drizzle
 
 1. Install `drizzle-orm` and `@planetscale/database` dependencies and `drizzle-kit` dev dependency. Drizzle minimizes abstractions by letting you provide a connection with native drivers. Since they support PlanetScale we can use their driver.
-2.
+2. Define the [Drizzle Schema](./nx/packages/drizzle/src/schema.ts)
+3. Push changes to db with drizzle-kit `drizzle-kit push:mysql`
+
+# Limitations
+
+### Prisma
+
+-
+
+### Drizzle
+
+- No 'push' for Postgres schema

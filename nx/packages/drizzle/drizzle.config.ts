@@ -8,7 +8,7 @@ const generateConfig = () => {
   console.log('connectionString', connectionString);
 
   return {
-    schema: './src/schema/*',
+    schema: './packages/drizzle/src/schema.ts',
     out: './packages/drizzle/drizzle-pull',
     connectionString,
   } satisfies Config;

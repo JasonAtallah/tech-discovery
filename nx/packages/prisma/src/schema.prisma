@@ -36,6 +36,7 @@ model Campaign {
   name           String
   ownerId        String
   owner          User         @relation(fields: [ownerId], references: [id])
+  active         Boolean      @default(true)
 
   @@index([organizationId])
   @@index([ownerId])

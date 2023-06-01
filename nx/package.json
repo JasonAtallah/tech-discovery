@@ -5,7 +5,8 @@
   "scripts": {
     "nx": "nx",
     "prisma:push": "npx prisma db push --schema packages/prisma/src/schema.prisma",
-    "drizzle:pull": "drizzle-kit introspect:mysql --config=packages/drizzle/drizzle.config.ts"
+    "drizzle:pull": "drizzle-kit introspect:mysql --config=packages/drizzle/drizzle.config.ts",
+    "drizzle:push": "drizzle-kit push:mysql --config=packages/drizzle/drizzle.config.ts"
   },
   "private": true,
   "devDependencies": {
