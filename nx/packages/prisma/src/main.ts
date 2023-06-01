@@ -1,5 +1,5 @@
 import { prisma } from './db';
-// import { seed } from './seed';
+import { seed } from './seed';
 
 async function main() {
   const campaigns = await prisma.campaign.findMany({
