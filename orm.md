@@ -24,4 +24,5 @@
 
 ### Drizzle
 
-- No 'push' for Postgres schema
+- No 'push' for Postgres schema. Have to push migrations
+- Can't default IDs to `UUID` or `CUID`

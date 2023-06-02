@@ -5,11 +5,10 @@ const generateConfig = () => {
   dotenv.config();
 
   const connectionString = process.env.DRIZZLE_CONFIG_DB_URL;
-  console.log('connectionString', connectionString);
 
   return {
     schema: './packages/drizzle/src/schema.ts',
-    out: './packages/drizzle/drizzle-pull',
+    out: './packages/drizzle/drizzle-out',
     connectionString,
   } satisfies Config;
 };

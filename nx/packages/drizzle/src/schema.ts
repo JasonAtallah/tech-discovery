@@ -1,23 +1,24 @@
 import { InferModel } from 'drizzle-orm';
 import {
-  mysqlTable,
-  index,
-  varchar,
-  uniqueIndex,
-  serial,
   boolean,
-} from 'drizzle-orm/mysql-core';
+  index,
+  integer,
+  pgTable,
+  serial,
+  text,
+  uniqueIndex,
+} from 'drizzle-orm/pg-core';
 
-export const user = mysqlTable(
+export const user = pgTable(
   'User',
   {
-    id: serial('id').primaryKey().notNull(),
-    name: varchar('name', { length: 191 }).notNull(),
-    email: varchar('email', { length: 191 }).notNull(),
+    id: serial('id').primaryKey(),
+    name: text('name').notNull(),
+    email: text('email').notNull(),
   },
   (table) => {
     return {
-      emailIndex: uniqueIndex('User_email_idx').on(table.email),
+      emailIndex: uniqueIndex('User_email_index').on(table.email),
     };
   }
 );
@@ -25,16 +26,16 @@ export const user = mysqlTable(
 export type User = InferModel<typeof user>; // return type when queried
 export type NewUser = InferModel<typeof user, 'insert'>; // insert type
 
-export const organization = mysqlTable(
+export const organization = pgTable(
   'Organization',
   {
-    id: serial('id').primaryKey().notNull(),
-    name: varchar('name', { length: 191 }).notNull(),
-    ownerId: varchar('ownerId', { length: 191 }).notNull(),
+    id: serial('id').primaryKey(),
+    name: text('name').notNull(),
+    ownerId: integer('ownerId').references(() => user.id),
   },
   (table) => {
     return {
-      ownerIdIndex: index('Organization_ownerId_idx').on(table.ownerId),
+      ownerIdIndex: index('Organization_ownerId_index').on(table.ownerId),
     };
   }
 );
@@ -42,21 +43,21 @@ export const organization = mysqlTable(
 export type Organization = InferModel<typeof organization>; // return type when queried
 export type NewOrganization = InferModel<typeof organization, 'insert'>; // insert type
 
-export const campaign = mysqlTable(
+export const campaign = pgTable(
   'Campaign',
   {
-    id: serial('id').primaryKey().notNull(),
-    organizationId: varchar('organizationId', { length: 191 }).notNull(),
-    name: varchar('name', { length: 191 }).notNull(),
-    ownerId: varchar('ownerId', { length: 191 }).notNull(),
-    active: boolean('active').notNull().default(true),
+    id: serial('id').primaryKey(),
+    name: text('name').notNull(),
+    active: boolean('active').default(true).notNull(),
+    organizationId: integer('organizationId').references(() => organization.id),
+    ownerId: integer('ownerId').references(() => user.id),
   },
   (table) => {
     return {
-      organizationIdIndex: index('Campaign_organizationId_idx').on(
+      organizationIdIndex: index('Campaign_organizationId_index').on(
         table.organizationId
       ),
-      ownerIdIndex: index('Campaign_ownerId_idx').on(table.ownerId),
+      ownerIdIndex: index('Campaign_ownerId_index').on(table.ownerId),
     };
   }
 );

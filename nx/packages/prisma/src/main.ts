@@ -14,5 +14,5 @@ async function main() {
   return campaigns;
 }
 
-// seed();
-main();
+seed();
+// main();
