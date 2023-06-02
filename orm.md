@@ -23,16 +23,16 @@
 
 ### Drizzle
 
-- Everything is in TS.
-- Drizzle always only makes one query. This is important if we're using services priced on reads/writes, Prisma will make an unknown amount of queries to satisy all relations.
-- No 'push' for Postgres schema. Have to use migrations. No migration command, have to write custom script.
-- Can't default IDs to `UUID` or `CUID`.
-- Docs are half baked. Some code snippets they have just don't work.
-- Community is very small. Debugging and finding answers will be more tough.
+- 😀 Everything is in TS.
+- 😀 Drizzle always only makes one query. This is important if we're using services priced on reads/writes, Prisma will make an unknown amount of queries to satisy all relations.
+- 😤 No 'push' for Postgres schema. Have to use migrations. No migration command, have to write custom script.
+- 😤 Can't default IDs to `UUID` or `CUID`.
+- 😤 Docs are half baked. Some code snippets they have just don't work.
+- 😤 Community is very small. Debugging and finding answers will be more tough.
 
 ### Prisma
 
-- Large community support.
-- More mature library.
-- Custom schema file adds code generation step.
-- Slow cold start times (doesn't matter if we're not on the edge).
+- 😀 Large community support.
+- 😀 More mature library.
+- 😤 Custom schema file adds code generation step.
+- 😤 Slow cold start times (doesn't matter if we're not on the edge).
