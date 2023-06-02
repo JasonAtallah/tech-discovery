@@ -14,7 +14,7 @@
 
 ### Drizzle
 
-1. Install `drizzle-orm` and `@planetscale/database` dependencies and `drizzle-kit` dev dependency. Drizzle minimizes abstractions by letting you provide a connection with native drivers. Since they support PlanetScale we can use their driver.
+1. Install `drizzle-orm` and `@neondatabase/serverless` dependencies and `drizzle-kit`, `postgres` and `tsx` dev dependencies. Drizzle minimizes abstractions by letting you provide a connection with native drivers. Since they support Neon we can use their driver.
 2. Define the [Drizzle Schema](./nx/packages/drizzle/src/schema.ts)
 3. Generate migrations based off schema `drizzle-kit generate:pg`.
 4. Run [migration script](./nx/packages//drizzle/src/migrate.ts).
