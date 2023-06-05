@@ -1,3 +1,11 @@
+import { Button } from '@nextui-org/react';
+
 export default function Index() {
-  return <h1 className="bg-slate-500">hi</h1>;
+  return (
+    <div>
+      <Button className="text-cyan-400" color="secondary">
+        Click me
+      </Button>
+    </div>
+  );
 }
